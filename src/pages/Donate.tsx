@@ -8,6 +8,7 @@ import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Shield } from 'lucide-react'; // Ensure Shield is imported
 import { FaBitcoin } from 'react-icons/fa'; // Import Bitcoin icon
+import { CryptoDonationModal } from '../components/CryptoDonationModal';
 import { SiBinance } from 'react-icons/si'; // Import Binance icon
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -58,7 +59,7 @@ const Donate = () => {
 
   const handleCryptoClick = () => {
     setModalDetails({
-      method: 'ETHERIUM',
+      method: 'Crypto',
       ...cryptoAddresses.crypto
     });
     setIsModalOpen(true);
@@ -286,7 +287,6 @@ const Donate = () => {
         onClose={() => setIsModalOpen(false)}
         {...modalDetails}
       />
-
       <Footer />
     </div>
   );

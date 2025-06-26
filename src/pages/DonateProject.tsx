@@ -73,7 +73,7 @@ const DonateProject = () => {
 
   const handleCryptoClick = () => {
     setModalDetails({
-      method: 'ETHERIUM',
+      method: 'Crypto',
       ...cryptoAddresses.crypto
     });
     setIsModalOpen(true);
@@ -192,7 +192,7 @@ const DonateProject = () => {
                       >
                         <span className="text-lg font-bold">${amount}</span>
                         <span className="text-xs text-center leading-tight">
-                          {project.impact[amount.toString() as keyof typeof project.impact]?.substring(0, 30)}...
+                          {project.impact[amount as unknown as keyof typeof project.impact]?.substring(0, 30)}...
                         </span>
                       </Button>
                     ))}

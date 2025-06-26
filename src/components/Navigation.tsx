@@ -37,9 +37,11 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            <Button className="bg-hope-red hover:bg-red-700 text-white font-semibold px-6">
-              Donate Now
-            </Button>
+            <Link to="/donate">
+              <Button className="bg-hope-red hover:bg-red-700 text-white font-semibold px-6">
+                Donate Now
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -69,9 +71,11 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="px-3 pt-2">
-                <Button className="w-full bg-hope-red hover:bg-red-700 text-white font-semibold">
-                  Donate Now
-                </Button>
+                <Link to="/donate" className="block">
+                  <Button className="w-full bg-hope-red hover:bg-red-700 text-white font-semibold">
+                    Donate Now
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
