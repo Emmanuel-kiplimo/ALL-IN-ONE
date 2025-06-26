@@ -1,0 +1,81 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hope Charity Design System */
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 224 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 47% 11%;
+
+    --primary: 227 64% 33%;
+    --primary-foreground: 210 17% 98%;
+
+    --secondary: 215 28% 95%;
+    --secondary-foreground: 225 70% 40%;
+
+    --muted: 215 28% 95%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 0 0% 100%; /* Changed to white */
+    --accent-foreground: 224 47% 11%; /* Changed to a dark color for contrast on white */
+
+    --destructive: 0 70% 51%;
+    --destructive-foreground: 210 17% 98%;
+
+    --border: 220 21% 90%;
+    --input: 220 21% 90%;
+    --ring: 210 93% 78%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 210 17% 98%;
+    --sidebar-foreground: 224 47% 11%;
+    --sidebar-primary: 227 64% 33%;
+    --sidebar-primary-foreground: 210 17% 98%;
+    --sidebar-accent: 215 28% 95%;
+    --sidebar-accent-foreground: 224 47% 11%;
+    --sidebar-border: 220 21% 90%;
+    --sidebar-ring: 210 93% 78%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-opensans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-lato;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(30, 64, 175, 0.8) 100%);
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl;
+  }
+  
+  .progress-bar {
+    background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
+  }
+}
