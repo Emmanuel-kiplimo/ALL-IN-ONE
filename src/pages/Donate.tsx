@@ -169,8 +169,6 @@ const Donate = () => {
                     <span>SSL Encrypted</span>
                   </div>
                   <span>•</span>
-                  <span>Tax Deductible</span>
-                  <span>•</span>
                   <span>85% Goes to Programs</span>
                 </div>
               </div>

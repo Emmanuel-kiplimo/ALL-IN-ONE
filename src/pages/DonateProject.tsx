@@ -252,8 +252,6 @@ const DonateProject = () => {
                     <span>SSL Encrypted</span>
                   </div>
                   <span>•</span>
-                  <span>Tax Deductible</span>
-                  <span>•</span>
                   <span>100% Goes to This Cause</span>
                 </div>
               </div>
