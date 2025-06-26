@@ -52,9 +52,9 @@ export const CryptoDonationModal = ({
               id="qrcode-canvas" // Add an ID to the canvas for downloading
               value={address}
               size={192} // Equivalent to w-48 h-48 (192px)
-              level="H" // High error correction level
-              includeMargin={true}
-              className="rounded-lg bg-white p-2 border" // Apply existing styling
+               // High error correction level
+                      includeMargin={true}
+                      className="rounded-lg bg-white p-2 border" // Apply existing styling
             />
           ) : (
             <p className="text-red-500">Wallet address not available.</p>
