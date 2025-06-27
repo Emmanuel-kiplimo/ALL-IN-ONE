@@ -60,7 +60,7 @@ const About = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://worldchildrensfund.org/site/assets/Site_images/WCF-Home-7-Basic-Rights-Suffers-Violencek.jpg"
+                src="https://res.cloudinary.com/dcheaxit5/image/upload/v1751047578/death_people_crying_whkyiq.jpg"
                 alt="Hope Charity volunteers"
                 className="rounded-lg shadow-2xl"
               />
@@ -124,8 +124,7 @@ const About = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/e/e7/International_Mine_Action_Center_in_Syria_(Aleppo)_45.jpg"
-                alt="Global community"
+                src="https://res.cloudinary.com/dcheaxit5/image/upload/v1751047581/expploring_missile_rlu4be.jpg"
                 className="rounded-lg shadow-2xl"
               />
             </div>

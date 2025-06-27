@@ -26,7 +26,7 @@ const initialBlogPosts: BlogPost[] = [
     category: "Field Diaries",
     date: "Jan 15, 2025",
     author: "Sarah Ahmed",
-    image: "https://www.aljazeera.com/wp-content/uploads/2025/01/AA-20250119-36799656-36799649-AFTERMATH_OF_ISRAELI_ATTACKS_IN_NORTHERN_GAZA_DURING_CEASEFIRE-1737364681.jpg?fit=1170,878&quality=80",
+    image: "https://res.cloudinary.com/dcheaxit5/image/upload/v1751043565/gaza_attack_xmaon6.jpg",
     featured: true
   },
   {
@@ -36,7 +36,7 @@ const initialBlogPosts: BlogPost[] = [
     category: "Donor Spotlights",
     date: "March 12, 2017", 
     author: "Michael Torres",
-    image: "https://media.gettyimages.com/id/1181814487/photo/toy-hand-giving-a-red-heart.jpg?s=612x612&w=0&k=20&c=I56HG_eVO6cMLWTr09xmEcpwHRsmnw0wqbGaXs3ijUM=",
+    image: "https://res.cloudinary.com/dcheaxit5/image/upload/v1751043714/Donors_ouiddd.jpg",
     featured: false
   },
   {
@@ -46,7 +46,7 @@ const initialBlogPosts: BlogPost[] = [
     category: "Recovery Progress",
     date: "Aug 10, 2019",
     author: "Dr. Fatima Khan",
-    image: "https://i.guim.co.uk/img/media/fd8335b64c24015f1ad33e277070fb3220c4a00f/0_0_8192_5464/master/8192.jpg?width=445&dpr=1&s=none&crop=none",
+    image: "https://res.cloudinary.com/dcheaxit5/image/upload/v1751046062/winter_update_s9g37k.jpg",
     featured: false
   },
   {
@@ -66,7 +66,7 @@ const initialBlogPosts: BlogPost[] = [
     category: "Field Diaries",
     date: "April 5, 2021",
     author: "Lisa Chen",
-    image: "https://media.gettyimages.com/id/157504331/photo/tithing.jpg?s=612x612&w=0&k=20&c=8hkY5KXz-j_thngcHnWFDOPNUfjOM8kvukl8FNCcBWo=",
+    image: "https://res.cloudinary.com/dcheaxit5/image/upload/v1751046269/story_volunteer_rqlacs.jpg",
     featured: false
   },
   {
@@ -76,7 +76,7 @@ const initialBlogPosts: BlogPost[] = [
     category: "Transparency Updates",
     date: "Sep 1, 2024",
     author: "Hope Charity Team",
-    image: "https://tcfcares.org/wp-content/uploads/2024/08/image1-1024x683.webp",
+    image: "https://res.cloudinary.com/dcheaxit5/image/upload/v1751046776/transparency_c13rvg.jpg",
     featured: false
   }
 ];

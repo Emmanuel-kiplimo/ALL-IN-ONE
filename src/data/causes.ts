@@ -18,7 +18,7 @@ export const causesData: Cause[] = [
     fullStory: 'The escalating conflict between Israel and Iran has left a growing humanitarian disaster in its wake. Entire neighborhoods have been flattened, forcing families to flee with nothing but fear in their hearts. Hospitals are overwhelmed, clean water is scarce, and shelters are running out of space. Every day, mothers cradle their children in ruins, praying for safety that never comes. Your donation will provide food packs, medical aid, and emergency shelter to those who need it most — giving them a chance to survive, to heal, and to hold onto hope in the darkest of times.',
     target: 2500000,
     raised: 289486,
-    image: 'https://www.hindustantimes.com/ht-img/img/2025/06/15/550x309/Israel_Iran_war_1749968263711_1749968263949.jpg',
+    image: 'https://res.cloudinary.com/dcheaxit5/image/upload/v1751034679/israel_iran_war_xn2aos.jpg',
     urgent: true,
     impact: {
       25: 'Provides emergency food rations for a family of four',
@@ -34,7 +34,7 @@ export const causesData: Cause[] = [
     fullStory: 'The situation in Gaza is desperate. After months of conflict, entire neighborhoods have been reduced to rubble. Families who once had comfortable homes now sleep in makeshift tents with no protection from the elements. Children wake up cold and hungry, with no school to attend and no safe place to play. Your donation will provide emergency shelter materials, clean water systems, and basic necessities to help these families survive and begin rebuilding their lives with dignity.',
     target: 1000000,
     raised: 675900,
-    image: 'https://uhrelief.org/wp-content/uploads/2023/05/Gaza4-500x333.jpg',
+    image: 'https://res.cloudinary.com/dcheaxit5/image/upload/v1751032309/Gaza_palestine_gmm4vn.jpg',
     urgent: true,
     impact: {
       25: 'Provides emergency blankets and basic supplies for one family',
@@ -50,7 +50,7 @@ export const causesData: Cause[] = [
     fullStory: 'A magnitude 7.1 earthquake struck western Iran in the early hours of the morning, catching families in their sleep. Within seconds, entire villages were flattened. The death toll continues to rise, but the survivors face an equally grim reality - winter is approaching, and thousands are sleeping outdoors with no shelter. Elderly residents and newborn babies are particularly vulnerable to the harsh conditions.',
     target: 750000,
     raised: 423300,
-    image: 'https://media.cnn.com/api/v1/images/stellar/prod/myanmar-20250329153159522.png?c=16x9&q=w_250,c_fill',
+    image: 'https://res.cloudinary.com/dcheaxit5/image/upload/v1751035237/iran_earthquake_djdjag.jpg',
     urgent: true,
     impact: {
       25: 'Provides warm blankets and emergency supplies for elderly survivors',
@@ -66,7 +66,7 @@ export const causesData: Cause[] = [
     fullStory: 'Months of unprecedented rainfall have led to catastrophic flooding in South Sudan, submerging entire communities. Families have lost their homes, their livestock, and their livelihoods. With contaminated water sources and a lack of sanitation, the risk of waterborne diseases like cholera is dangerously high. Your support can provide life-saving essentials like clean water purification tablets, emergency food supplies, and temporary shelters to protect vulnerable families from the elements and disease.',
     target: 600000,
     raised: 318000,
-    image: 'https://media.gettyimages.com/id/1242656693/es/foto/sudanese-cross-a-flooded-road-in-the-town-of-iboud-in-al-gezira-state-250kms-south-of-the.jpg?s=612x612&w=0&k=20&c=cnwzjeW3g8Yw8K_2Fukydti1GJgT-mFUDnKrggcycyo=',
+    image: 'https://res.cloudinary.com/dcheaxit5/image/upload/v1751035350/south_sudan_flood_nzmqzx.jpg',
     urgent: false,
     impact: {
       25: 'Provides a family with a clean water kit for one month.',
@@ -82,7 +82,7 @@ export const causesData: Cause[] = [
     fullStory: 'In the heart of the Israel-Palestine conflict, it is the civilians—children, parents, and the elderly—who bear the heaviest burden. Our mission is to provide impartial aid. We work with partners on both sides to deliver critical medical supplies to overwhelmed hospitals, set up trauma support centers for those affected by violence, and ensure that essential humanitarian aid reaches those cut off by the conflict. Your donation transcends politics; it is a direct message of hope and healing to people in desperate need.',
     target: 900000,
     raised: 546700,
-    image: 'https://microsites-live-backend.cfr.org/cdn/ff/IptivITttZKB3YdLrizxlz0QecvyhRgjS299_YhKsgQ/1615823513/public/2019-08/RTS1RIU6_IsraelPalestine_Nakba_protest_0.jpg',
+    image: 'https://res.cloudinary.com/dcheaxit5/image/upload/v1751035544/israel_palestine_dnubiu.jpg',
     urgent: false,
     impact: {
       25: 'Supplies a first-aid kit to a family.',
@@ -98,7 +98,7 @@ export const causesData: Cause[] = [
     fullStory: 'Winter in Afghanistan is a silent killer. For families living in makeshift shelters without proper heating or clothing, the freezing temperatures are a daily battle for survival. Children are especially vulnerable to hypothermia and illness. Hope Charity is on the ground distributing high-thermal blankets, warm winter clothing, nutritious food packs, and safe heating supplies to help families endure the harsh winter. Your contribution can be the warmth that saves a life.',
     target: 800000,
     raised: 480900,
-    image: 'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/MSNBC/Components/Slideshows/_production/ss-afghanistan2011/ss-110913-afghanistan-03.jpg',
+    image: 'https://res.cloudinary.com/dcheaxit5/image/upload/v1751035752/winter_afhaganster_kwojus.jpg',
     urgent: true,
     impact: {
       25: 'Provides a warm winter blanket for a child.',
