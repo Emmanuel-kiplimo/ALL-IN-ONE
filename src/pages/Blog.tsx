@@ -26,7 +26,7 @@ const initialBlogPosts: BlogPost[] = [
     category: "Field Diaries",
     date: "Jan 15, 2025",
     author: "Sarah Ahmed",
-    image: "https://res.cloudinary.com/dcheaxit5/image/upload/v1751043565/gaza_attack_xmaon6.jpg",
+    image: "/images/gaza attack.jpg",
     featured: true
   },
   {
@@ -36,7 +36,7 @@ const initialBlogPosts: BlogPost[] = [
     category: "Donor Spotlights",
     date: "March 12, 2017", 
     author: "Michael Torres",
-    image: "https://res.cloudinary.com/dcheaxit5/image/upload/v1751043714/Donors_ouiddd.jpg",
+    image: "/images/Donors.jpg",
     featured: false
   },
   {
@@ -46,7 +46,7 @@ const initialBlogPosts: BlogPost[] = [
     category: "Recovery Progress",
     date: "Aug 10, 2019",
     author: "Dr. Fatima Khan",
-    image: "https://res.cloudinary.com/dcheaxit5/image/upload/v1751046062/winter_update_s9g37k.jpg",
+    image: "/images/winter update.jpg",
     featured: false
   },
   {
@@ -56,7 +56,7 @@ const initialBlogPosts: BlogPost[] = [
     category: "Recovery Progress",
     date: "Dec 8, 2020",
     author: "Elena Rodriguez",
-    image: "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/rockcms/2023-02/230207-turkey-syria-earthquake-mb-1129-b17327.jpg",
+    image: "/images/turkey syria.jpg",
     featured: false
   },
   {
@@ -66,7 +66,7 @@ const initialBlogPosts: BlogPost[] = [
     category: "Field Diaries",
     date: "April 5, 2021",
     author: "Lisa Chen",
-    image: "https://res.cloudinary.com/dcheaxit5/image/upload/v1751046269/story_volunteer_rqlacs.jpg",
+    image: "/images/story volunteer.jpg",
     featured: false
   },
   {
@@ -76,7 +76,7 @@ const initialBlogPosts: BlogPost[] = [
     category: "Transparency Updates",
     date: "Sep 1, 2024",
     author: "Hope Charity Team",
-    image: "https://res.cloudinary.com/dcheaxit5/image/upload/v1751046776/transparency_c13rvg.jpg",
+    image: "/images/transparency.jpg",
     featured: false
   }
 ];

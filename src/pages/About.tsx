@@ -60,7 +60,7 @@ const About = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://res.cloudinary.com/dcheaxit5/image/upload/v1751047578/death_people_crying_whkyiq.jpg"
+                src="/images/death people crying.jpg"
                 alt="Hope Charity volunteers"
                 className="rounded-lg shadow-2xl"
               />
@@ -124,7 +124,7 @@ const About = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://res.cloudinary.com/dcheaxit5/image/upload/v1751047581/expploring_missile_rlu4be.jpg"
+                src="/images/expploring missile.jpg"
                 className="rounded-lg shadow-2xl"
               />
             </div>
