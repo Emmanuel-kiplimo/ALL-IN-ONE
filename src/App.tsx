@@ -13,6 +13,8 @@ import Contact from "./pages/Contact";
 import DonateProject from "./pages/DonateProject";
 import NotFound from "./pages/NotFound";
 
+import AmbientMusic from "@/components/AmbientMusic";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -20,6 +22,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <AmbientMusic />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

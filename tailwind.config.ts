@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -20,8 +19,10 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'lato': ['Lato', 'sans-serif'],
-				'opensans': ['Open Sans', 'sans-serif'],
+				'lato': ['Outfit', 'sans-serif'],
+				'opensans': ['Outfit', 'sans-serif'],
+				'playfair': ['Playfair Display', 'serif'],
+				'outfit': ['Outfit', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -69,11 +70,14 @@ export default {
 				},
 				// Hope Charity brand colors
 				hope: {
-					blue: '#1e3a8a',
-					'blue-dark': '#1e40af',
-					gray: '#64748b',
-					'gray-light': '#f1f5f9',
-					red: '#dc2626',
+					blue: '#111827',
+					'blue-dark': '#030712',
+					gray: '#4b5563',
+					'gray-light': '#f9fafb',
+					red: '#8b1e2f',
+					crimson: '#8b1e2f',
+					cream: '#faf7f2',
+					gold: '#c5a880',
 					white: '#ffffff',
 				}
 			},

@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, User } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface BlogPost {
   id: string;
@@ -17,7 +17,7 @@ interface BlogPost {
   featured: boolean;
 }
 
-// Hardcoded blog posts (reverted to original state)
+// Hardcoded blog posts (with Sudan, Ukraine, and DRC added)
 const initialBlogPosts: BlogPost[] = [
   {
     id: "1",
@@ -28,6 +28,36 @@ const initialBlogPosts: BlogPost[] = [
     author: "Sarah Ahmed",
     image: "/images/gaza attack.jpg",
     featured: true
+  },
+  {
+    id: "7",
+    title: "Inside Sudan: Facing the World's Silent Famine",
+    excerpt: "Our emergency food trucks have breached barricaded routes in Sudan, bringing nutrient-rich pastes and clean water to starving infants in dry plains.",
+    category: "Field Diaries",
+    date: "May 10, 2026",
+    author: "Aminat Ibrahim",
+    image: "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=800&q=80",
+    featured: false
+  },
+  {
+    id: "8",
+    title: "Ukraine Winter Rescue: Battling Frost and Blackouts",
+    excerpt: "Electrical lines are shattered. Our team has completed delivery of high-capacity generators and thermal wear to vulnerable underground community cellars.",
+    category: "Recovery Progress",
+    date: "Jan 12, 2026",
+    author: "Andriy Boyko",
+    image: "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?auto=format&fit=crop&w=800&q=80",
+    featured: false
+  },
+  {
+    id: "9",
+    title: "Outbreak Deployments: Combatting Mpox in the DRC",
+    excerpt: "In conflict-torn eastern DR Congo, our mobile clinic doctors are crossing militarized sectors to deliver critical vaccines and direct life-saving health support.",
+    category: "Field Diaries",
+    date: "March 20, 2026",
+    author: "Dr. Jean-Luc Kalamba",
+    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+    featured: false
   },
   {
     id: "2",
@@ -82,8 +112,40 @@ const initialBlogPosts: BlogPost[] = [
 ];
 
 const Blog = () => {
-  const [blogPosts] = useState<BlogPost[]>(initialBlogPosts); // Use hardcoded data
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>(initialBlogPosts);
   const [selectedCategory, setSelectedCategory] = useState('All');
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      const BACKEND_URL = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://hope-backend-0h72.onrender.com';
+      try {
+        const res = await fetch(`${BACKEND_URL}/api/blogs`);
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) {
+            const mapped = data.map((post: any, idx: number) => ({
+              id: post.id || String(idx + 1),
+              title: post.title,
+              excerpt: post.excerpt,
+              category: post.category || (post.tags && post.tags[0]) || "General",
+              date: post.createdAt ? new Date(post.createdAt).toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+              }) : "Recent",
+              author: post.author || "Hope Charity Team",
+              image: post.featuredImage || post.image || "https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=800&q=80",
+              featured: idx === 0
+            }));
+            setBlogPosts(mapped);
+          }
+        }
+      } catch (error) {
+        console.warn('Failed to fetch dynamic blogs, using fallback data:', error);
+      }
+    };
+    fetchBlogs();
+  }, []);
 
   const categories = ["All", "Field Diaries", "Donor Spotlights", "Recovery Progress", "Transparency Updates"];
 
@@ -94,39 +156,50 @@ const Blog = () => {
   const featuredPost = filteredPosts.find(post => post.featured);
   const regularPosts = filteredPosts.filter(post => !post.featured);
 
+  const formatBlogDate = (dateStr: string) => {
+    const parsed = Date.parse(dateStr);
+    if (isNaN(parsed)) {
+      return dateStr;
+    }
+    return new Date(parsed).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  };
+
   const renderContent = () => {
     return (
       <>
         {/* Featured Post */}
-        {featuredPost && ( // Ensure featuredPost exists before rendering
+        {featuredPost && (
           <section key={featuredPost.id} className="py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="bg-white rounded-xl shadow-2xl overflow-hidden hover-lift">
+              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden hover-lift border border-[#c5a880]/15">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
-                  <div className="h-64 lg:h-full">
+                  <div className="h-64 lg:h-full relative overflow-hidden group">
                     <img 
                       src={featuredPost.image}
                       alt={featuredPost.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-black/10" />
                   </div>
-                  <div className="p-8 lg:p-12 flex flex-col justify-center">
-                    <Badge className="w-fit mb-4 bg-hope-red text-white">
-                      Featured • {featuredPost.category}
-                    </Badge>
-                    <h2 className="font-lato font-bold text-3xl text-hope-blue mb-4">
-                      {featuredPost.title}
-                    </h2>
-                    <p className="text-hope-gray text-lg mb-6 leading-relaxed">
+                  <div className="p-8 lg:p-12 flex flex-col justify-center space-y-6">
+                    <div>
+                      <Badge className="mb-4 bg-[#8b1e2f] text-white hover:bg-[#8b1e2f]/90 py-1 px-3">
+                        Featured • {featuredPost.category}
+                      </Badge>
+                      <h2 className="font-playfair font-bold text-3xl md:text-4xl text-[#111827] leading-tight">
+                        {featuredPost.title}
+                      </h2>
+                    </div>
+                    <p className="text-hope-gray text-lg leading-relaxed font-light">
                       {featuredPost.excerpt}
                     </p>
-                    <div className="flex items-center text-sm text-hope-gray space-x-4">
-                      <div className="flex items-center space-x-1">
-                        <Calendar className="w-4 h-4" />
-                        <span>{new Date(featuredPost.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                    <div className="flex items-center text-sm text-hope-gray space-x-6 pt-4 border-t border-hope-gold/10">
+                      <div className="flex items-center space-x-2">
+                        <Calendar className="w-4 h-4 text-[#8b1e2f]" />
+                        <span>{formatBlogDate(featuredPost.date)}</span>
                       </div>
-                      <div className="flex items-center space-x-1">
-                        <User className="w-4 h-4" />
+                      <div className="flex items-center space-x-2">
+                        <User className="w-4 h-4 text-[#8b1e2f]" />
                         <span>{featuredPost.author}</span>
                       </div>
                     </div>
@@ -138,43 +211,48 @@ const Blog = () => {
         )}
 
         {/* Blog Grid */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-20 bg-slate-50 border-t border-hope-gold/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-lato font-bold text-3xl text-hope-blue text-center mb-12">
-              Latest Updates
+            <h2 className="font-playfair font-bold text-3xl md:text-5xl text-[#111827] text-center mb-16">
+              Latest Dispatches & Stories
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {regularPosts.map((post) => (
-                <Card key={post.id} className="hover-lift overflow-hidden border-0 shadow-lg">
-                  <div className="h-48 overflow-hidden">
-                    <img 
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                    />
+                <Card key={post.id} className="glass-panel hover-lift overflow-hidden border border-[#c5a880]/15 bg-white/80 shadow-xl transition-all duration-300 rounded-2xl flex flex-col justify-between">
+                  <div>
+                    <div className="h-48 overflow-hidden relative group">
+                      <img 
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/5" />
+                    </div>
+                    <div className="p-6 space-y-4">
+                      <Badge variant="outline" className="text-[#8b1e2f] border-[#8b1e2f]/20 bg-[#8b1e2f]/5 py-0.5 px-2.5">
+                        {post.category}
+                      </Badge>
+                      <h3 className="font-playfair font-bold text-xl text-[#111827] leading-snug line-clamp-2 hover:text-[#8b1e2f] transition duration-200">
+                        {post.title}
+                      </h3>
+                      <p className="text-hope-gray font-light text-sm leading-relaxed line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                    </div>
                   </div>
-                  <CardContent className="p-6">
-                    <Badge variant="outline" className="mb-3">
-                      {post.category}
-                    </Badge>
-                    <h3 className="font-lato font-bold text-xl text-hope-blue mb-3 line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-hope-gray mb-4 line-clamp-3 leading-relaxed">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center text-sm text-hope-gray space-x-4">
-                      <div className="flex items-center space-x-1">
-                        <Calendar className="w-4 h-4" />
-                        <span>{post.date}</span>
+                  <div className="p-6 pt-0">
+                    <div className="flex items-center text-xs text-hope-gray space-x-4 border-t border-hope-gold/10 pt-4">
+                      <div className="flex items-center space-x-1.5">
+                        <Calendar className="w-3.5 h-3.5 text-[#8b1e2f]" />
+                        <span>{formatBlogDate(post.date)}</span>
                       </div>
-                      <div className="flex items-center space-x-1">
-                        <User className="w-4 h-4" />
+                      <div className="flex items-center space-x-1.5">
+                        <User className="w-3.5 h-3.5 text-[#8b1e2f]" />
                         <span>{post.author}</span>
                       </div>
                     </div>
-                  </CardContent>
+                  </div>
                 </Card>
               ))}
             </div>
@@ -185,30 +263,38 @@ const Blog = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#faf7f2] font-outfit text-hope-blue selection:bg-hope-red/20">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-r from-hope-blue to-hope-blue-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-lato font-bold text-4xl md:text-5xl text-white mb-6">
-            Stories from the Field
+      <section className="relative pt-32 pb-24 bg-gradient-to-br from-[#111827] via-[#1f2937] to-[#030712] text-white overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#8b1e2f]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-hope-gold/5 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+          <span className="text-hope-gold font-medium tracking-widest text-xs uppercase block">Humanitarian Journal</span>
+          <h1 className="font-playfair font-bold text-4xl md:text-6xl text-white tracking-tight">
+            Stories From <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-[#faf7f2] to-hope-gold">The Field</span>
           </h1>
-          <p className="text-xl text-slate-200 max-w-3xl mx-auto">
-            Real stories, real impact, real transparency. Follow our journey as we bring hope to communities worldwide.
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">
+            Real stories, raw dispatches, and absolute transparency. Follow our workers as they protect lives and build futures across the globe.
           </p>
         </div>
       </section>
 
       {/* Categories */}
-      <section className="py-8 bg-gray-50 border-b">
+      <section className="py-6 bg-white border-b border-hope-gold/15 sticky top-16 z-20 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2">
             {categories.map((category) => (
               <Badge 
                 key={category}
                 variant={selectedCategory === category ? "default" : "outline"}
-                className="cursor-pointer hover:bg-hope-blue hover:text-white transition-colors px-4 py-2"
+                className={`cursor-pointer transition-all duration-200 px-4 py-2 text-sm font-medium rounded-full ${
+                  selectedCategory === category 
+                    ? "bg-[#8b1e2f] text-white hover:bg-[#8b1e2f]" 
+                    : "border-hope-gold/20 text-[#111827] hover:bg-slate-50"
+                }`}
                 onClick={() => setSelectedCategory(category)}
               >
                 {category}
@@ -226,3 +312,4 @@ const Blog = () => {
 };
 
 export default Blog;
+
